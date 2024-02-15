@@ -14,8 +14,8 @@ public class MyAgent extends DevelopmentAgent {
     @Override
     public void run() {
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
-            String initString = br.readLine();
-            String[] temp = initString.split(" ");
+            String initString = br.readLine(); //Initial details including board size
+            String[] temp = initString.split(" "); // has width height and mode
             int nSnakes = Integer.parseInt(temp[0]);
 
             while (true) {
@@ -24,21 +24,21 @@ public class MyAgent extends DevelopmentAgent {
                     break;
                 }
 
-                String apple1 = line;
+                String apple1 = line;//coordinates of the apple : hint type cast from string to int
                 
                 //do stuff with apples
                 
                 // read in obstacles and do something with them!
                 int nObstacles = 3;
                 for (int obstacle = 0; obstacle < nObstacles; obstacle++) {
-                    String obs = br.readLine();
+                    String obs = br.readLine(); //Obstacles details
                     /// do something with obs
                 }
 
 
                 int mySnakeNum = Integer.parseInt(br.readLine());
                 for (int i = 0; i < nSnakes; i++) {
-                    String snakeLine = br.readLine();
+                    String snakeLine = br.readLine(); //my snake length
                     if (i == mySnakeNum) {
                         //hey! That's me :)
                     }
