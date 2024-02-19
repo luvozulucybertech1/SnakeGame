@@ -5,7 +5,7 @@ import java.util.Random;
 import za.ac.wits.snake.DevelopmentAgent;
 
 public class MyAgent extends DevelopmentAgent {
-
+	
     public static void main(String args[]) {
         MyAgent agent = new MyAgent();
         MyAgent.start(agent, args);
@@ -17,7 +17,9 @@ public class MyAgent extends DevelopmentAgent {
             String initString = br.readLine(); //Initial details including board size
             String[] temp = initString.split(" "); // has width height and mode
             int nSnakes = Integer.parseInt(temp[0]);
-
+            
+            Program MySnake = new Program();
+            
             while (true) {
                 String line = br.readLine();
                 if (line.contains("Game Over")) {
@@ -33,20 +35,25 @@ public class MyAgent extends DevelopmentAgent {
                 for (int obstacle = 0; obstacle < nObstacles; obstacle++) {
                     String obs = br.readLine(); //Obstacles details
                     /// do something with obs
+                    MySnake.getObstacles(obs);
                 }
 
 
                 int mySnakeNum = Integer.parseInt(br.readLine());
                 for (int i = 0; i < nSnakes; i++) {
                     String snakeLine = br.readLine(); //my snake length
+                    
                     if (i == mySnakeNum) {
                         //hey! That's me :)
+                    	
+                    	MySnake.drawSnake(snakeLine);
+                    	
                     }
                     //do stuff with other snakes
                 }
                 //finished reading, calculate move:
                 int move = new Random().nextInt(4);
-                System.out.println(move);
+                System.out.println();
             }
         } catch (IOException e) {
             e.printStackTrace();
